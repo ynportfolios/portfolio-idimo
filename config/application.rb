@@ -28,6 +28,17 @@ module PortfolioIdimo
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    # 20201024 RSpecを実装
+    # config.generators.system_tests = nil
+
+    # 20201024 RSpecを実装 start
+    config.generators do |g|
+      g.test_framework :rspec, 
+            view_specs: false, 
+            helper_specs: false, 
+            controller_specs: false, 
+            routing_specs: false
+    end
+    # 20201024 RSpecを実装 end
   end
 end

@@ -37,6 +37,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # 20201024 RSpecを実装 start
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  # 20201024 RSpecを実装 end
 end
 
 group :development do
