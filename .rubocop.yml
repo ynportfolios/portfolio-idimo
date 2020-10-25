@@ -1,0 +1,17 @@
+# 20201025 RuboCopを実装 start
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - "bin/*"
+    - "config/**/*"
+
+AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+# 20201025 RuboCopを実装 end
