@@ -1,4 +1,3 @@
-# 20201025 RuboCopを実装 start
 inherit_from: .rubocop_todo.yml
 
 AllCops:
@@ -14,4 +13,9 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-# 20201025 RuboCopを実装 end
+
+Metrics/MethodLength:
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false

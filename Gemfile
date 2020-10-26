@@ -39,13 +39,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 
 # 日本語化
-gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
+gem 'rails-i18n', '~> 5.1'
 
 # Bootstrap
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views', '~> 1.0'
+# gem 'devise-bootstrap-views', '~> 1.0'
 # 20201025 簡単ログイン実装 end
 
 group :development, :test do
