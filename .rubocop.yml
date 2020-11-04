@@ -3,9 +3,10 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.5.8
   Exclude:
-    - "bin/*"
-    - "config/**/*"
+    - 'bin/*'
+    - 'config/**/*'
     - 'vendor/**/*'
+    - 'db/schema.rb'
 
 AsciiComments:
   Enabled: false
