@@ -2,6 +2,8 @@ ja:
   activerecord:
     attributes:
       user:
+        animal: 好きな動物
+        birth_date: 生年月日
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -15,16 +17,23 @@ ja:
         last_sign_in_at: 最終ログイン時刻
         last_sign_in_ip: 最終ログインIPアドレス
         locked_at: ロック時刻
+        name: ユーザ名
+        no_answer: 無回答
+        man: 男性
+        other: その他
         password: パスワード
         password_confirmation: パスワード（確認用）
+        profile: 自己紹介
         remember_created_at: ログイン記憶時刻
         remember_me: ログインを記憶する
         reset_password_sent_at: パスワードリセット送信時刻
         reset_password_token: パスワードリセット用トークン
+        sex: 性別
         sign_in_count: ログイン回数
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        woman: 女性
     models:
       user: ユーザ
   devise:
