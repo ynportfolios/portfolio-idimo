@@ -1,0 +1,22 @@
+<div id="users" class="container">
+  <h1><%= @user.name %></h1>
+  <h2>好きな動物</h2>
+    <p><%= @user.animal %></p>
+  <h2>性別</h2>
+    <% case @user.sex %>
+    <% when 'man' then %>
+      <p>男性</p>
+    <% when 'woman' then %>
+      <p>女性</p>
+    <% when 'other' then %>
+      <p>その他</p>
+    <% when 'no_answer' then %>
+      <p>無回答</p>
+    <% else %>
+      <p>無回答</p>
+    <% end %>
+  <h2>年齢</h2>
+    <p><%= (Date.today.strftime('%Y%m%d').to_i - @user.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳</p>
+  <h2>自己紹介</h2>
+    <p><%= simple_format(@user.profile) %></p>
+</div>

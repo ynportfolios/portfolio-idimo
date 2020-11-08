@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   # 20201107 ユーザ情報の追加 start
   protect_from_forgery with: :exception
 
+  # ログイン済ユーザーのみにアクセスを許可する（ホームのインデックスページ以外）
+  before_action :authenticate_user!, if: proc { !(controller_path == 'homes' && action_name == 'index') }
+
   # deviseコントローラーにストロングパラメータを追加する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
