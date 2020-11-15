@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    # 20201114 ユーザ検索機能の実装
+    @user = User.find(params[:id])
   end
 end

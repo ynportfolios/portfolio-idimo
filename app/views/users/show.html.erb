@@ -18,5 +18,5 @@
   <h2>年齢</h2>
     <p><%= (Date.today.strftime('%Y%m%d').to_i - @user.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳</p>
   <h2>自己紹介</h2>
-    <p><%= simple_format(@user.profile) %></p>
+    <p><%= @user.profile %></p>
 </div>

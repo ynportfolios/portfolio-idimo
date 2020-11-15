@@ -1,1 +1,9 @@
-<%= render 'shared/flash_messages' %>
+<div class="container">
+  <%= render 'shared/flash_messages' %>
+  <% if user_signed_in? %>
+    <hr class="my-5">
+    <div class="form-group">
+      <%= link_to "ユーザ検索", homes_show_path, class: 'btn btn-info btn-block mb-4' %>
+    </div>
+  <% end %>
+</div>

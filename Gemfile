@@ -44,9 +44,12 @@ gem 'rails-i18n', '~> 5.1'
 
 # Bootstrap
 gem 'bootstrap', '~> 4.3.1'
-gem 'devise-bootstrap-views', '~> 1.0'
+# gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 # 20201025 簡単ログイン実装 end
+
+# 20201111 ユーザ検索機能の実装
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
