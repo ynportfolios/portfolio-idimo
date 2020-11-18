@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :relationships, only: [:create, :destroy]
   get 'homes/show' => 'homes#show'
   get 'users/show' => 'users#show'
   root 'homes#index'
