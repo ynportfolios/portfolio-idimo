@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   get 'homes/show' => 'homes#show'
+  get 'homes/check' => 'homes#check'
   get 'users/show' => 'users#show'
   root 'homes#index'
   devise_for :users, controllers: {

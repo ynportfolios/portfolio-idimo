@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>ユーザ名</th>
+      <th>好きな動物</th>
+      <th>自己紹介</th>
+    </tr>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+        <% case params[:status] %>
+        <% when 'follow' then %>
+          <tr>
+            <% if current_user.following?(user) %>
+              <td><%= link_to user.name, users_show_path(id:user.id) %></td>
+              <td><%= user.animal %></td>
+              <td><%= user.profile %></td>
+            <% end %>
+          </tr>
+        <% when 'follower' then %>
+          <tr>
+            <% if user.following?(current_user) %>
+              <td><%= link_to user.name, users_show_path(id:user.id) %></td>
+              <td><%= user.animal %></td>
+              <td><%= user.profile %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
+</div>

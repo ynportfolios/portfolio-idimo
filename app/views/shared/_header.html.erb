@@ -11,6 +11,12 @@
             <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
           </li>
           <li class="nav-item active">
+            <%= link_to 'フォロー中', homes_check_path(status:'follow'), class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'フォロワー', homes_check_path(status:'follower'), class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
