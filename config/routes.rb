@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :messages, :only => [:create]
-  resources :rooms, :only => [:create, :show]
+  resources :rooms, :only => [:create]
+  get 'rooms/show' => 'rooms#show'
   get 'homes/show' => 'homes#show'
   get 'homes/check' => 'homes#check'
   get 'users/show' => 'users#show'
