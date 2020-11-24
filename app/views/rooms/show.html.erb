@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>チャット</h1>
+  <hr>
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <p><%= m.content %></p>
+      <small class="form-text text-muted">by <%= m.user.name %>さん</small>
+      <hr>
+    <% end %>
+  <% else %>
+  <% end %>
+
+  <%= form_for @message do |f| %>
+    <div class="form-group">
+      <%= f.text_field :content, class: 'form-control' %>
+
+      <small class="form-text text-muted">メッセージを入力してください</small>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :room_id, :value => @room.id %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "送信", class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>
