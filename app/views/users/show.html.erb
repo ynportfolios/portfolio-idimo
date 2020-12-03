@@ -1,9 +1,11 @@
 <div id="users" class="container">
+  <h1>プロフィール</h1>
   <%= render 'shared/flash_messages' %>
-  <h1><%= @user.name %></h1>
-  <% if current_user.following?(@user) && @user.following?(current_user) %>
-    <h2>サンプル（かつ）</h2>
+  <% if (current_user.following?(@user) && @user.following?(current_user) && !@user.secret) || @current_user == @user %>
+    <%= image_tag @user.image.to_s, class: 'img-fluid img-center' %>
   <% end %>
+  <h2>ユーザ名</h2>
+    <p><%= @user.name %></p>
   <h2>好きな動物</h2>
     <p><%= @user.animal %></p>
   <h2>性別</h2>

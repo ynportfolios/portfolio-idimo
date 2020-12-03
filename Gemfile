@@ -51,6 +51,11 @@ gem 'jquery-rails'
 # 20201111 ユーザ検索機能の実装
 gem 'ransack'
 
+# 20201129 プロフィール写真の実装 start
+gem 'carrierwave'
+gem 'fog'
+# 20201129 プロフィール写真の実装 end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

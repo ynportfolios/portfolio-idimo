@@ -26,6 +26,9 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   # 20201123 ダイレクトメッセージの実装 end
 
+  # 20201129 プロフィール写真の実装
+  mount_uploader :image, ImageUploader
+
   def follow(other_user)
     relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end

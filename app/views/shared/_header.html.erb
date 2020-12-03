@@ -8,6 +8,9 @@
             <%= link_to 'ユーザ検索', homes_show_path, class: 'nav-link' %>
           </li>
           <li class="nav-item active">
+            <%= link_to 'マイプロフィール', users_show_path(id:current_user.id), class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
             <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
           </li>
           <li class="nav-item active">

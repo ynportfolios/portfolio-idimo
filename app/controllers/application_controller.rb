@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     # ユーザ登録時に以下のストロングパラメータを追加
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name sex birth_date animal])
     # ユーザ編集時に以下のストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name sex birth_date animal profile])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name sex birth_date animal profile image secret])
   end
   # 20201107 ユーザ情報の追加 end
 

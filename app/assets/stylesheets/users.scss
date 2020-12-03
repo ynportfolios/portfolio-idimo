@@ -3,13 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #users{
-  h1{
-    color:white;
-    background:#007bff;
-    text-align:center;
-  }
   h2{
     border-left: solid 5px #007bff;
     padding-left:10px;
   }
+}
+
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 10px;
 }
