@@ -7,13 +7,13 @@ class HomesController < ApplicationController
     @no_answer_count = 0
     @users.each do |user|
       case user.sex
-      when 'man' then
+      when 'man'
         @man_count += 1
-      when 'woman' then
+      when 'woman'
         @woman_count += 1
-      when 'other' then
+      when 'other'
         @other_count += 1
-      when 'no_answer' then
+      when 'no_answer'
         @no_answer_count += 1
       else
         @no_answer_count += 1
