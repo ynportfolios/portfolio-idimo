@@ -1,4 +1,4 @@
-<div id="users" class="container">
+<div id="users_show" class="container">
   <h1>プロフィール</h1>
   <%= render 'shared/flash_messages' %>
   <% if (current_user.following?(@user) && @user.following?(current_user) && !@user.secret) || @current_user == @user %>

@@ -1,5 +1,15 @@
-<div class="container">
+<div id="homes_index" class="container">
   <%= render 'shared/flash_messages' %>
+  <img src='/assets/Sparkle.png', class='img-fluid img-center'>
+  <h1>登録者数</h1>
+  <h2>男性</h2>
+    <p><%= @man_count %>人</p>
+  <h2>女性</h2>
+    <p><%= @woman_count %>人</p>
+  <h2>その他</h2>
+    <p><%= @other_count %>人</p>
+  <h2>無回答</h2>
+    <p><%= @no_answer_count %>人</p>
   <% if user_signed_in? %>
     <hr class="my-5">
     <div class="form-group">
