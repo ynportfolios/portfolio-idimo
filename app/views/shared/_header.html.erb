@@ -1,7 +1,10 @@
 <header>
-  <nav class="navbar navbar-expand navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <%= link_to "idimo", root_path, class: 'navbar-brand' %>
-    <div id="Navber">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item active">
