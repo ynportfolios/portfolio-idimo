@@ -23,7 +23,7 @@ class HomesController < ApplicationController
 
   def show
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page])
   end
 
   def check
