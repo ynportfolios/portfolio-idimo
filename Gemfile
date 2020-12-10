@@ -59,6 +59,9 @@ gem 'fog'
 # 20201206 ページネーションの実装
 gem 'kaminari', '~> 1.0.0'
 
+# ローカル環境で環境変数を設定
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

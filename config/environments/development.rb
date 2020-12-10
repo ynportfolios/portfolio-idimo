@@ -39,8 +39,10 @@ Rails.application.configure do
       enable_starttls_auto: true,
       address: "smtp.gmail.com",
       port: 587,
-      user_name: 'y.n.mailer@gmail.com',
-      password: 'passy.n.mailer',
+      # ローカル環境で環境変数を設定 start
+      user_name: ENV["MAIL_USERNAME"],
+      password: ENV["MAIL_PASSWORD"],
+      # ローカル環境で環境変数を設定 end
       authentication: "plain"
   }
   # 20201026 簡単ログイン実装 end
