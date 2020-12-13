@@ -1,4 +1,10 @@
 <div class="container">
+  <% case params[:status] %>
+  <% when 'follow' then %>
+    <h1>フォロー中</h1>
+  <% when 'follower' then %>
+    <h1>フォロワー</h1>
+  <% end %>
   <table class="table">
     <tr>
       <th>ユーザ名</th>
