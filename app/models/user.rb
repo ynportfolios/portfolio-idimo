@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   # 20201107 ユーザ情報の追加 start
   # 性別の関連付け
@@ -46,6 +46,7 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now
       user.name = 'ゲストユーザ'
       user.sex = 3
       user.birth_date = Date.new(1989, 1, 1)
