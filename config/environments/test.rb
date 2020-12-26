@@ -37,7 +37,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'http://test.host' }
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :test
   config.action_mailer.smtp_settings = {
       enable_starttls_auto: true,
       address: "smtp.gmail.com",
