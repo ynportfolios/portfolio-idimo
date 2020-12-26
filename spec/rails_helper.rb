@@ -64,6 +64,9 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  # 20201224 テストコードを実装
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
   # 20201024 RSpecを実装
   config.include FactoryBot::Syntax::Methods
 end
