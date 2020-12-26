@@ -37,3 +37,9 @@ Metrics/AbcSize:
 
 Lint/EmptyConditionalBody:
   Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false

@@ -46,7 +46,6 @@ RSpec.describe 'Homes', type: :request do
 end
 
 RSpec.describe 'Homes', type: :request do
-
   describe 'ログインせずにshowページを取得する' do
     it '表示に成功する' do
       get homes_show_path
