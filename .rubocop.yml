@@ -41,5 +41,5 @@ Lint/EmptyConditionalBody:
 Style/StringConcatenation:
   Enabled: false
 
-Layout/LineLength:
+Metrics/BlockLength:
   Enabled: false
