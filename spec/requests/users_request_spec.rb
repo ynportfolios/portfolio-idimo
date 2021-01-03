@@ -44,7 +44,7 @@ RSpec.describe 'Users', type: :request do
     it '作成に成功する' do
       post users_guest_sign_in_path
       expect(response).to redirect_to root_path
-      expect(flash.now[:notice]).to include 'ゲストユーザとしてログインしました。a'
+      expect(flash.now[:notice]).to include 'ゲストユーザとしてログインしました。'
     end
   end
 end
