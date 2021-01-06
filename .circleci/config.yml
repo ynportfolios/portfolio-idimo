@@ -1,0 +1,31 @@
+version: 2
+
+workflows:
+  build:
+    jobs:
+      - build:
+        context:
+          - portfolio-idimo
+
+jobs:
+  build:
+    # docker-composeがインストール済みの仮想マシンをプル
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+      - run:
+          name: Dockerコンテナのビルドと起動
+          command: docker-compose up --build -d
+      - run:
+          name: DBの作成
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create
+      - run:
+          name: dbのマイグレーション
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
+      - run:
+          name: ソースコードチェック
+          command: docker-compose exec --env 'RAILS_ENV=test' web rubocop
+      - run:
+          name: テスト
+          command: docker-compose exec --env 'RAILS_ENV=test' web rspec spec
