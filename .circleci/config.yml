@@ -1,7 +1,6 @@
-version: 2.0
+version: 2.1
 
 workflows:
-    version: 2.0
     my-workflow:
         jobs:
           - build:
@@ -11,8 +10,7 @@ workflows:
 jobs:
   build:
     # docker-composeがインストール済みの仮想マシンをプル
-    machine:
-      image: circleci/classic:edge
+    machine: true
     steps:
       - checkout
       - run:
@@ -20,13 +18,13 @@ jobs:
           command: docker-compose up --build -d
       - run:
           name: DBの作成
-          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create -d
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create
       - run:
           name: dbのマイグレーション
-          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate -d
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
       - run:
           name: ソースコードチェック
-          command: docker-compose exec --env 'RAILS_ENV=test' web rubocop -d
+          command: docker-compose exec --env 'RAILS_ENV=test' web rubocop
       - run:
           name: テスト
-          command: docker-compose exec --env 'RAILS_ENV=test' web rspec spec -d
+          command: docker-compose exec --env 'RAILS_ENV=test' web rspec spec
