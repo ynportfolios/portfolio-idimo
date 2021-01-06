@@ -15,12 +15,11 @@ jobs:
       - checkout
 
       - run:
-          name: Docker Compose のインストール
+          name: Docker Composeの上書き
           command: |
               curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
               chmod +x ~/docker-compose
               sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      
       - run:
           name: Dockerコンテナのビルドと起動
           command: docker-compose up --build -d
