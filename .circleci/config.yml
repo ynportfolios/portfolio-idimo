@@ -3,9 +3,9 @@ version: 2.1
 workflows:
     my-workflow:
         jobs:
-            - build:
-                context:
-                    - portfolio-idimo
+          - build:
+              context:
+                - portfolio-idimo
 
 jobs:
   build:
@@ -19,13 +19,13 @@ jobs:
           command: docker-compose up --build -d
       - run:
           name: DBの作成
-          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create -d
       - run:
           name: dbのマイグレーション
-          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate -d
       - run:
           name: ソースコードチェック
-          command: docker-compose exec --env 'RAILS_ENV=test' web rubocop
+          command: docker-compose exec --env 'RAILS_ENV=test' web rubocop -d
       - run:
           name: テスト
-          command: docker-compose exec --env 'RAILS_ENV=test' web rspec spec
+          command: docker-compose exec --env 'RAILS_ENV=test' web rspec spec -d
