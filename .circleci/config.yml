@@ -1,12 +1,11 @@
-version: 2.1
+version: 2
 
 workflows:
-  my-workflow:
-    jobs:
-      - build:
-        context:
-          - portfolio-idimo
-      
+    my-workflow:
+        jobs:
+            - build:
+                context:
+                    - portfolio-idimo
 
 jobs:
   build:
