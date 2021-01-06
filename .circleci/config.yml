@@ -9,7 +9,7 @@ workflows:
 
 jobs:
   build:
-    # docker-composeがインストール済みの仮想マシンをプル
+    # Docker Composeがインストール済みの仮想マシンをプル
     machine: true
     steps:
       - checkout
