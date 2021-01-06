@@ -18,7 +18,7 @@ jobs:
           command: docker-compose up --build -d
       - run:
           name: DBの作成
-          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create -u
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create
       - run:
           name: dbのマイグレーション
           command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
