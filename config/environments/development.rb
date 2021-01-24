@@ -32,18 +32,14 @@ Rails.application.configure do
 
   # 20201026 簡単ログイン実装 start
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      enable_starttls_auto: true,
-      address: "smtp.gmail.com",
-      port: 587,
-      # ローカル環境で環境変数を設定 start
-      user_name: ENV["MAIL_USERNAME"],
-      password: ENV["MAIL_PASSWORD"],
-      # ローカル環境で環境変数を設定 end
-      authentication: "plain"
+    address:"smtp.gmail.com",
+    domain: 'gmail.com',
+    port:587,
+    user_name: ENV["MAIL_USERNAME"],
+    password: ENV["MAIL_PASSWORD"],
+    authentication: :login
   }
   # 20201026 簡単ログイン実装 end
 

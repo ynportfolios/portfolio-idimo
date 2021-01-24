@@ -7,6 +7,7 @@ AllCops:
     - 'config/**/*'
     - 'vendor/**/*'
     - 'db/schema.rb'
+    - 'docker/**/*'
 
 AsciiComments:
   Enabled: false

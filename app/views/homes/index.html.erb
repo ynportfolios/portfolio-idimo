@@ -1,6 +1,6 @@
 <div id="homes_index" class="container">
   <%= render 'shared/flash_messages' %>
-  <img src='/idimo.png', class='img-fluid img-center'>
+  <%= image_tag asset_path('idimo.png'), class:"img-fluid img-center" %>
   <h1>登録者数</h1>
   <h2>男性</h2>
     <p><%= @man_count %>人</p>
