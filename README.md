@@ -19,7 +19,6 @@
 * データベースにはPostgreSQLを使用しています。
 * レスポンシブ対応のためにBootstrapを使用しています。
 * 本番環境の画像アップロード先としてAmazon S3を使用しています。
-* Dockerコンテナで開発を行いHerokuで本番運用しています。
-* Travis CIを使用してCIとHEROKUへのCDを構築しています。
+* Dockerコンテナで開発を行いAWSで本番運用しています。
 * CircleCIを使用してCIを構築しています。
 * Trelloを使用してタスク管理を行なっています。
