@@ -89,11 +89,8 @@ RSpec.describe User, type: :model do
     expect(user.errors[:password]).to include('を入力してください')
   end
 
-  it '自己紹介が200文字以上の場合、無効である' do
-    user = FactoryBot.build(:user, profile: 'ああああああああああああああああああああああああああああああああああああ
-      ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-      ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-      あああああああああああああああああああああああああああああああああああああああああああああ')
+  it '自己紹介が201文字以上の場合、無効である' do
+    user = FactoryBot.build(:user, profile: 'x' * 201)
     user.valid?
     expect(user.errors[:profile]).to include('は200文字以内で入力してください')
   end
