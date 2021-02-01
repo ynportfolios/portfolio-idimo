@@ -22,13 +22,13 @@ RSpec.describe 'Messages', type: :request do
         room_id: room.id
       )
       expect(entry_a).to be_valid
-      post messages_path(message: { content: 'test', room_id: room.id })
+      post messages_path(message: { content: 'test', room_id: room.id, user_id: user.id })
       expect(response).to redirect_to rooms_show_path(id: room.id)
     end
     it '作成に失敗する' do
       room = Room.create
       expect(room).to be_valid
-      post messages_path(message: { content: 'test', room_id: room.id })
+      post messages_path(message: { content: 'test', room_id: room.id, user_id: user.id })
       expect(response).to redirect_to root_path
     end
     it 'バリデーションに失敗する（201文字以上）' do
@@ -44,7 +44,7 @@ RSpec.describe 'Messages', type: :request do
         room_id: room.id
       )
       expect(entry_a).to be_valid
-      post messages_path(message: { content: 'x' * 201, room_id: room.id })
+      post messages_path(message: { content: 'x' * 201, room_id: room.id, user_id: user.id })
       expect(response).to redirect_to rooms_show_path(id: room.id)
       expect(flash[:alert]).to include('メッセージは200文字以内で入力してください。')
     end
@@ -61,7 +61,7 @@ RSpec.describe 'Messages', type: :request do
         room_id: room.id
       )
       expect(entry_a).to be_valid
-      post messages_path(message: { content: '', room_id: room.id })
+      post messages_path(message: { content: '', room_id: room.id, user_id: user.id })
       expect(response).to redirect_to rooms_show_path(id: room.id)
       expect(flash[:alert]).to include('メッセージは1文字以上で入力してください。')
     end
@@ -78,7 +78,7 @@ RSpec.describe 'Messages', type: :request do
         room_id: room.id
       )
       expect(entry_a).to be_valid
-      post messages_path(message: { content: nil, room_id: room.id })
+      post messages_path(message: { content: nil, room_id: room.id, user_id: user.id })
       expect(response).to redirect_to rooms_show_path(id: room.id)
       expect(flash[:alert]).to include('メッセージを入力してください。')
     end
