@@ -51,6 +51,7 @@ class User < ApplicationRecord
       user.sex = 3
       user.birth_date = Date.new(1989, 1, 1)
       user.animal = 'イヌ'
+      user.profile = 'はじめまして。趣味は音楽鑑賞です。よろしくお願いします！'
     end
   end
 end
