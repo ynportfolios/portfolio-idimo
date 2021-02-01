@@ -17,6 +17,7 @@
 ## アプリケーション内で使用している技術一覧
 * WebフレームワークにはRailsを使用しています。
 * レスポンシブ対応のためにBootstrapを使用しています。
-* Dockerコンテナで開発を行いAWSで本番運用しています。（ECS・EC2、ECR、RDS・PostgreSQL、S3、ELB・ALB、VPC）
+* Dockerコンテナで開発を行いAWSで本番運用しています。
+  - ECS・EC2、ECR、RDS・PostgreSQL、S3、ELB・ALB、VPC
 * CircleCIを使用してCIを構築しています。
 * Trelloを使用してタスク管理を行なっています。
