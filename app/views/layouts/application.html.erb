@@ -4,12 +4,17 @@
     <title>PortfolioIdimo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%# 20201025 簡単ログイン実装　%>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%# 20201025 簡単ログイン実装　%>
+    <%= render 'shared/header' %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

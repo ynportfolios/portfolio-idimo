@@ -1,0 +1,37 @@
+version: 2.1
+
+workflows:
+    my-workflow:
+        jobs:
+          - build:
+              context:
+                - portfolio-idimo
+
+jobs:
+  build:
+    # Docker Composeがインストール済みの仮想マシンをプル
+    machine: true
+    steps:
+      - checkout
+
+      - run:
+          name: Docker Composeの上書き
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - run:
+          name: Dockerコンテナのビルドと起動
+          command: docker-compose up --build -d
+      - run:
+          name: DBの作成
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create
+      - run:
+          name: dbのマイグレーション
+          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
+      - run:
+          name: ソースコードチェック
+          command: docker-compose exec --env 'RAILS_ENV=test' web rubocop
+      - run:
+          name: テスト
+          command: docker-compose exec --env 'RAILS_ENV=test' web rspec spec

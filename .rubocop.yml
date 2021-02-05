@@ -1,0 +1,46 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.5.8
+  Exclude:
+    - 'bin/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+    - 'docker/**/*'
+
+AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Lint/EmptyConditionalBody:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

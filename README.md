@@ -1,24 +1,28 @@
-# README
+# idimo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーションの概要
+不要な身バレを防ぐマッチングアプリです。
 
-Things you may want to cover:
+## アプリケーションの機能一覧
+* ログイン機能（devise）
+* 簡単ログイン機能
+* 登録者数表示機能
+* ユーザ検索機能（ransack）
+* ページネーション機能（kaminari）
+* プロフィール表示機能
+* 画像アップロード機能実装（carrierwave、fog）
+* フォロー機能
+* ダイレクトメッセージ機能
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## アプリケーション内で使用している技術一覧
+* Trelloを使用してタスク管理を行なっています。
+* WebフレームワークにはRailsを使用しています。
+* レスポンシブ対応のためにBootstrapを使用しています。
+* CircleCIを使用してCIを構築しています。
+* Dockerコンテナで開発を行いAWSで本番運用しています。
+  - ECS・EC2
+  - ECR
+  - RDS・PostgreSQL
+  - S3
+  - ELB・ALB
+  - VPC

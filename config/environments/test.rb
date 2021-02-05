@@ -33,10 +33,22 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Tell Action Mailer not to deliver emails to the real world.
-  # The :test delivery method accumulates sent emails in the
-  # ActionMailer::Base.deliveries array.
+  # 20201224 テストコードを実装 start
+  config.action_mailer.default_url_options = { host: 'http://test.host' }
+
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
+  config.action_mailer.smtp_settings = {
+      enable_starttls_auto: true,
+      address: "smtp.gmail.com",
+      port: 587,
+      # ローカル環境で環境変数を設定 start
+      user_name: ENV["MAIL_USERNAME"],
+      password: ENV["MAIL_PASSWORD"],
+      # ローカル環境で環境変数を設定 end
+      authentication: "plain"
+  }
+  # 20201224 テストコードを実 end
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr

@@ -18,12 +18,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   
-  # 20201022 開発環境の構築 start
   host: db
   user: postgres
   port: 5432
   password: <%= ENV.fetch("DATABASE_PASSWORD") %>
-  # 20201022 開発環境の構築 end
 
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -83,11 +81,17 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
-  database: portfolio-idimo_production
-  username: portfolio-idimo
-  password: <%= ENV['PORTFOLIO-IDIMO_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+# production:
+#   url: <%= ENV['DATABASE_URL'] %>
+#
+# production:
+#   <<: *default
+#   database: portfolio-idimo_production
+#   username: portfolio-idimo
+#   password: <%= ENV['PORTFOLIO-IDIMO_DATABASE_PASSWORD'] %>

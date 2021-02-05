@@ -1,0 +1,61 @@
+<div id="users_show" class="container">
+  <%= render 'shared/flash_messages' %>
+  <% if (current_user.following?(@user) && @user.following?(current_user) && !@user.secret) || @current_user == @user %>
+    <%= image_tag @user.image.to_s, class: 'img-fluid img-center' %>
+  <% end %>
+  <% if current_user == @user %>
+    <h1>マイプロフィール</h1>
+  <% else %>
+    <h1>プロフィール</h1>
+  <% end %>
+  <h2>ユーザ名</h2>
+    <p><%= @user.name %></p>
+  <h2>好きな動物</h2>
+    <p><%= @user.animal %></p>
+  <h2>性別</h2>
+    <% case @user.sex %>
+    <% when 'man' then %>
+      <p>男性</p>
+    <% when 'woman' then %>
+      <p>女性</p>
+    <% when 'other' then %>
+      <p>その他</p>
+    <% when 'no_answer' then %>
+      <p>無回答</p>
+    <% else %>
+      <p>無回答</p>
+    <% end %>
+  <h2>年齢</h2>
+    <p><%= (Date.today.strftime('%Y%m%d').to_i - @user.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳</p>
+  <h2>自己紹介</h2>
+    <p><%= @user.profile %></p>
+  <% unless current_user == @user %>
+    <% if @is_room == true %>
+      <%= link_to 'ダイレクトメッセージへ', rooms_show_path(id: @room_id), class: 'btn btn-info btn-block mb-4' %>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, :value=> @user.id %>
+        <% end %>
+        <div class="form-group">
+          <%= f.submit "ダイレクトメッセージへ", class: 'btn btn-info btn-block mb-4'%>
+        </div>
+      <% end %>
+    <% end %>
+    <% if current_user.following?(@user) %>
+      <%= form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f| %>
+        <%= hidden_field_tag :follow_id, @user.id %>
+        <div class="form-group">
+          <%= f.submit 'フォロー解除', class: 'btn btn-danger btn-block' %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.relationships.build) do |f| %>
+        <%= hidden_field_tag :follow_id, @user.id %>
+        <div class="form-group">
+          <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
