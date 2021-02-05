@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_014931) do
+ActiveRecord::Schema.define(version: 2021_02_05_021539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2021_02_05_014931) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "room_id"
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
