@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'ユーザ名が16文字以上の場合、無効である' do
-    user = FactoryBot.build(:user, name: 'aaaaaaaaaaaaaaaa')
+    user = FactoryBot.build(:user, name: 'x' * 16)
     user.valid?
     expect(user.errors[:name]).to include('は15文字以内で入力してください')
   end
@@ -41,8 +41,8 @@ RSpec.describe User, type: :model do
     expect(user.errors[:animal]).to include('は不正な値です')
   end
 
-  it '好きな動物が30文字以上の場合、無効である' do
-    user = FactoryBot.build(:user, animal: 'アアアアアアアアアアアアアアアアアアアアアアアアアアアアアアア')
+  it '好きな動物が31文字以上の場合、無効である' do
+    user = FactoryBot.build(:user, animal: 'x' * 31)
     user.valid?
     expect(user.errors[:animal]).to include('は30文字以内で入力してください')
   end
@@ -132,6 +132,7 @@ RSpec.describe User, type: :model do
 
   it 'ゲストユーザを作成する' do
     user = User.guest
-    expect(user.email).to_not be 'guest@example.com'
+    expect(user).to be_valid
+    expect(user.email).to eq('guest@example.com')
   end
 end
