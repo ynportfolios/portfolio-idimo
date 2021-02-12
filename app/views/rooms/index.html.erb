@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>ダイレクトメッセージ一覧</h1>
+  <table class="table">
+    <tr>
+      <th>ユーザ名</th>
+      <th>好きな動物</th>
+      <th>最後のメッセージ</th>
+    </tr>
+    <% if @room_informations.any? %>
+      <% @room_informations.each do |room_information| %>
+        <tr>
+          <td class="text-break"><%= link_to room_information[:other_user].name,
+            users_show_path(id: room_information[:other_user].id) %></td>
+          <td class="text-break"><%= room_information[:other_user].animal %></td>
+          <% if room_information[:room].messages.any? %>
+            <td class="text-break"><%= link_to room_information[:room].messages.last.content.truncate(30),
+              rooms_show_path(id: room_information[:room].id) %></td>
+          <% else %>
+            <td><%= link_to "メッセージがありません", rooms_show_path(id: room_information[:room].id) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

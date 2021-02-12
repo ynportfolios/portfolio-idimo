@@ -9,9 +9,9 @@
     <h1>プロフィール</h1>
   <% end %>
   <h2>ユーザ名</h2>
-    <p><%= @user.name %></p>
+    <p class="text-break"><%= @user.name %></p>
   <h2>好きな動物</h2>
-    <p><%= @user.animal %></p>
+    <p class="text-break"><%= @user.animal %></p>
   <h2>性別</h2>
     <% case @user.sex %>
     <% when 'man' then %>
@@ -28,7 +28,7 @@
   <h2>年齢</h2>
     <p><%= (Date.today.strftime('%Y%m%d').to_i - @user.birth_date.strftime('%Y%m%d').to_i) / 10000 %>歳</p>
   <h2>自己紹介</h2>
-    <p><%= @user.profile %></p>
+    <p class="text-break"><%= @user.profile %></p>
   <% unless current_user == @user %>
     <% if @is_room == true %>
       <%= link_to 'ダイレクトメッセージへ', rooms_show_path(id: @room_id), class: 'btn btn-info btn-block mb-4' %>
