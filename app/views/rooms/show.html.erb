@@ -4,7 +4,7 @@
   <hr>
   <% if @messages.present? %>
     <% @messages.each do |m| %>
-      <p><%= m.content %></p>
+      <p class="text-break"><%= m.content %></p>
       <small class="form-text text-muted">by <%= m.user.name %>さん</small>
       <hr>
     <% end %>

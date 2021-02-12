@@ -40,9 +40,13 @@
     <% if @users.any? %>
       <% @users.each do |user| %>
         <tr>
-          <td><%= link_to user.name, users_show_path(id:user.id) %></td>
-          <td><%= user.animal %></td>
-          <td><%= user.profile %></td>
+          <td class="text-break"><%= link_to user.name, users_show_path(id:user.id) %></td>
+          <td class="text-break"><%= user.animal %></td>
+          <% if user.profile.nil? %>
+            <td class="text-break"><%= user.profile %></td>
+          <% else %>
+            <td class="text-break"><%= user.profile.truncate(30) %></td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>
