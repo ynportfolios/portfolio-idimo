@@ -1,11 +1,13 @@
 <div class="container">
+  <% encourage_following_notice_messages! %>
   <%= render 'shared/flash_messages' %>
   <h1>ダイレクトメッセージ</h1>
   <hr>
   <% if @messages.present? %>
     <% @messages.each do |m| %>
       <p class="text-break"><%= m.content %></p>
-      <small class="form-text text-muted">by <%= m.user.name %>さん</small>
+      <small class="form-text text-muted">by <%= link_to m.user.name,
+        users_show_path(id: m.user.id) %>さん</small>
       <hr>
     <% end %>
   <% else %>
