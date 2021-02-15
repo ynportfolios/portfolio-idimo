@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y \
   libpq-dev \
   nodejs \
   postgresql-client \
-  yarn
+  yarn \
+  imagemagick
 
 WORKDIR /portfolio-idimo
 COPY Gemfile Gemfile.lock /portfolio-idimo/
