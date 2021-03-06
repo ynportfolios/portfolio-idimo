@@ -1,19 +1,10 @@
 <div id="homes_index" class="container">
   <%= render 'shared/flash_messages' %>
-  <%= image_tag asset_path('idimo.png'), class:"img-fluid img-center" %>
-  <h1>登録者数</h1>
-  <h2>男性</h2>
-    <p><%= @man_count %>人</p>
-  <h2>女性</h2>
-    <p><%= @woman_count %>人</p>
-  <h2>その他</h2>
-    <p><%= @other_count %>人</p>
-  <h2>無回答</h2>
-    <p><%= @no_answer_count %>人</p>
-  <% if user_signed_in? %>
-    <hr class="my-5">
-    <div class="form-group">
-      <%= link_to "ユーザ検索", homes_show_path, class: 'btn btn-info btn-block mb-4' %>
-    </div>
-  <% end %>
+  <h1>idimo</h1>
+  <h2>〇〇好きならきっとイイ人</h2>
+  <%= image_tag asset_path('animals.png'), class:"img-fluid img-center" %>
+  <p>不要な身バレを防ぐマッチングアプリです。</p>
+  <p>ユーザがプロフィール画像を公開している場合、相互フォロー時に閲覧することができます。</p>
+  <%= image_tag asset_path('padlock.png'), class:"img-fluid img-center-small" %>
+  <p>好きな動物を共有してマッチングしましょう。</p>
 </div>
