@@ -3,9 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #homes_index{
+  h1{
+    text-align:center;
+  }
+}
+
+#homes_index{
   h2{
-    border-left: solid 5px #007bff;
-    padding-left: 10px;
+    text-align:center;
+  }
+}
+
+#homes_index{
+  p{
+    text-align:center;
   }
 }
 
@@ -15,6 +26,16 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    padding-bottom: 10px;
+  }
+}
+
+#homes_index{
+  .img-center-small {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     padding-bottom: 10px;
   }
 }
