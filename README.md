@@ -47,6 +47,9 @@ https://docs.google.com/spreadsheets/d/1qKLTuAGL1qU3xmecncMPBQARYw2Wizvdr8rPZNGY
 ## テーブル定義・ER図
 https://docs.google.com/spreadsheets/d/1FNDnS8KO7vljwhsnVsWhY7xD_cpqVaUWV_SGNpt4ahw/edit?usp=sharing
 
+## 画面遷移図
+https://docs.google.com/spreadsheets/d/1g111Cza5JvebZCXovtTbnMH-ZhcXAijl9TApjL3c-aU/edit?usp=sharing
+
 ## 使用Gem
 * devise
 * devise-i18n
