@@ -22,4 +22,13 @@ class ApplicationController < ActionController::Base
     email = resource&.email || params[:user][:email].downcase
     redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません。' if email == 'guest@example.com'
   end
+
+  def destroy_room
+    user_entries = Entry.where(user_id: current_user.id)
+    return unless user_entries
+
+    user_entries.each do |entry|
+      entry.room.destroy
+    end
+  end
 end
