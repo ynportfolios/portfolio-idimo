@@ -13,6 +13,22 @@
 　決済方法は１ヶ月毎のサブスリプション方式を採用します。これにより契約が急激に減らない限り、ある程度定まった収益を得られます。更新時に料金オプションに基づいてメッセージ可能数を付与します。付与されたメッセージ数を超えた場合には課金によって補充します。またマッチングが成就しなかったユーザには継続更新数に応じた割引を行います。  
 　まずは既にマッチングアプリを運営している企業がベータ版としてリリースすることが最良であると考えています。ユーザを抱えていなければマッチングアプリとして成り立ちません。従来のマッチングアプリを使用しているユーザから身バレを防ぎたい一定層を取り込みます。ある程度のユーザを得た後にアルファ版とし、新規層を本格的に取り込みます。また満足できなかった層を従来アプリに取り込むことも可能であると考えています。
 
+## 技術一覧
+* WebフレームワークにRuby on Railsを使用しています。
+* 独自ドメインを設定しています。
+* https化しています。
+* Rspecを使用してテストを作成しています。
+* レスポンシブ対応のためにBootstrapを使用しています。
+* CircleCIを使用してCIを構築しています。
+* Dockerコンテナで開発を行いAWSで本番運用しています。
+  - ECS・EC2
+  - ECR
+  - RDS・PostgreSQL
+  - S3
+  - ACM
+  - ELB・ALB
+  - VPC
+
 ## 機能一覧
 * ログイン機能
   - ゲストユーザでもログインすることができます。
@@ -72,18 +88,25 @@ https://docs.google.com/spreadsheets/d/18cSMkrrpCPFrS1DsgRc-4-cBELlbcQgkOaRMs58J
 * rspec-rails
 * rubocop
 
-## 技術一覧
-* WebフレームワークにRuby on Railsを使用しています。
-* 独自ドメインを設定しています。
-* https化しています。
-* Rspecを使用してテストを作成しています。
-* レスポンシブ対応のためにBootstrapを使用しています。
-* CircleCIを使用してCIを構築しています。
-* Dockerコンテナで開発を行いAWSで本番運用しています。
-  - ECS・EC2
-  - ECR
-  - RDS・PostgreSQL
-  - S3
-  - ACM
-  - ELB・ALB
-  - VPC
+## ローカルでの実行方法
+前提：git、docker、docker-composeをインストールしていること
+* gitからportfolio-idimoをクローン
+  - git clone https://github.com/ynportfolios/portfolio-idimo.git
+* portfolio-idimoフォルダに移動
+  - cd portfolio-idimo
+* portfolio-idimoフォルダ直下に.envファイル（環境変数）を作成
+  - メイラーとして使用するgoogleアカウントのメールアドレス・パスワードを入力
+  - 内容：①MAIL_USERNAME = メールアドレス　②MAIL_PASSWORD = パスワード
+* dockerコンテナ（web・db）を起動
+  - docker-compose up --build -d
+* dockerコンテナ（web）に入る
+  - docker-compose exec web bash
+* データベースの作成
+  - rails db:create
+* マイグレーションを実行
+  - rails db:migrate
+* seedデータの投入
+  - rails db:seed
+* サーバの実行・アクセス
+  - rails s -b 0.0.0.0
+  - ブラウザでlocalhost:3000にアクセス
