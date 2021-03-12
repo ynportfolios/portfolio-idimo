@@ -16,7 +16,7 @@ RUN bundle install -j4
 
 ADD . /app
 
-RUN bundle exec rails assets:precompile RAILS_ENV=production
+RUN bundle exec rails assets:precompile RAILS_ENV=production SECRET_KEY_BASE=dummy DATABASE_PASSWORD=dummy
 
 EXPOSE 3000
 
