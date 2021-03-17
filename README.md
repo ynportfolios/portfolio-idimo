@@ -89,8 +89,7 @@ https://docs.google.com/spreadsheets/d/18cSMkrrpCPFrS1DsgRc-4-cBELlbcQgkOaRMs58J
 * rubocop
 
 ## ローカルでの実行方法
-**前提：**  
-**git、docker、docker-composeをインストールしていること**
+**前提：git、docker、docker-composeをインストールしていること**
 * gitからportfolio-idimoをクローン
   - 以下のコマンドを実行
   ```
