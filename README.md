@@ -101,9 +101,9 @@ https://docs.google.com/spreadsheets/d/18cSMkrrpCPFrS1DsgRc-4-cBELlbcQgkOaRMs58J
   cd portfolio-idimo
   ```
 * portfolio-idimoフォルダ直下に.envファイル（環境変数）を作成
-  - メイラーとして使用するgoogleアカウントのメールアドレス・パスワードを入力
-  ```
+  - メイラーとして使用するgoogleアカウントのメールアドレス・パスワードを入力  
   記入例：
+  ```
   MAIL_USERNAME = youremail@gmail.com
   MAIL_PASSWORD = yourpassword
   ```
