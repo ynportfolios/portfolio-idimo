@@ -91,26 +91,50 @@ https://docs.google.com/spreadsheets/d/18cSMkrrpCPFrS1DsgRc-4-cBELlbcQgkOaRMs58J
 ## ローカルでの実行方法
 **前提：git、docker、docker-composeをインストールしていること**
 * gitからportfolio-idimoをクローン
-  - ```git clone https://github.com/ynportfolios/portfolio-idimo.git```
+  - 以下のコマンドを実行
+  ```
+  git clone https://github.com/ynportfolios/portfolio-idimo.git
+  ```
 * portfolio-idimoフォルダに移動
-  - ```cd portfolio-idimo```
+  - 以下のコマンドを実行
+  ```
+  cd portfolio-idimo
+  ```
 * portfolio-idimoフォルダ直下に.envファイル（環境変数）を作成
   - メイラーとして使用するgoogleアカウントのメールアドレス・パスワードを入力
-  - 記入例： 
+  - 記入例：
   ```
   MAIL_USERNAME = youremail@gmail.com
   MAIL_PASSWORD = yourpassword
   ```
 * dockerコンテナ（web・db）を起動
-  - ```docker-compose up --build -d```
+  - 以下のコマンドを実行
+  ```
+  docker-compose up --build -d
+  ```
 * dockerコンテナ（web）に入る
-  - ```docker-compose exec web bash```
+  - 以下のコマンドを実行
+  ```
+  docker-compose exec web bash
+  ```
 * データベースの作成
-  - ```rails db:create```
+  - 以下のコマンドを実行
+  ```
+  rails db:create
+  ```
 * マイグレーションを実行
-  - ```rails db:migrate```
+  - 以下のコマンドを実行
+  ```
+  rails db:migrate
+  ```
 * seedデータの投入
-  - ```rails db:seed```
+  - 以下のコマンドを実行
+  ```
+  rails db:seed
+  ```
 * サーバの実行・アクセス
-  - ```rails s -b 0.0.0.0```
+  - 以下のコマンドを実行
+  ```
+  rails s -b 0.0.0.0
+  ```
   - ブラウザでlocalhost:3000にアクセス
