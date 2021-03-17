@@ -89,27 +89,26 @@ https://docs.google.com/spreadsheets/d/18cSMkrrpCPFrS1DsgRc-4-cBELlbcQgkOaRMs58J
 * rubocop
 
 ## ローカルでの実行方法
-前提：**git**、**docker**、**docker-compose**をインストールしていること
+**前提：git、docker、docker-composeをインストールしていること**
 * gitからportfolio-idimoをクローン
-```git clone https://github.com/ynportfolios/portfolio-idimo.git```
+  - ```git clone https://github.com/ynportfolios/portfolio-idimo.git```
 * portfolio-idimoフォルダに移動
-```cd portfolio-idimo```
+  - ```cd portfolio-idimo```
 * portfolio-idimoフォルダ直下に.envファイル（環境変数）を作成
-メイラーとして使用するgoogleアカウントのメールアドレス・パスワードを入力  
-内容：①MAIL_USERNAME = メールアドレス ②MAIL_PASSWORD = パスワード
-記入例：  
-MAIL_USERNAME=youremail@gmail.com  
-MAIL_PASSWORD=yourpassword
+  - メイラーとして使用するgoogleアカウントのメールアドレス・パスワードを入力
+  - 記入例：  
+  MAIL_USERNAME = `youremail@gmail.com`  
+  MAIL_PASSWORD = yourpassword
 * dockerコンテナ（web・db）を起動
-```docker-compose up --build -d```
+  - ```docker-compose up --build -d```
 * dockerコンテナ（web）に入る
-```docker-compose exec web bash```
+  - ```docker-compose exec web bash```
 * データベースの作成
-```rails db:create```
+  - ```rails db:create```
 * マイグレーションを実行
-```rails db:migrate```
+  - ```rails db:migrate```
 * seedデータの投入
-```rails db:seed```
+  - ```rails db:seed```
 * サーバの実行・アクセス
-```rails s -b 0.0.0.0```
-ブラウザでlocalhost:3000にアクセス
+  - ```rails s -b 0.0.0.0```
+  - ブラウザでlocalhost:3000にアクセス
