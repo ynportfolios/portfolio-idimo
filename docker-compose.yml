@@ -16,8 +16,14 @@ services:
     stdin_open: true
     depends_on:
       - db
+      - chrome
     links:
       - db
+
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - '4444:4444'
 
   db:
     image: postgres

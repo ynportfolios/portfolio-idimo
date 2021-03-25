@@ -71,8 +71,10 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # 20201024 RSpecを実装 start
+  gem 'capybara', '>=2.15'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
   # 20201024 RSpecを実装 end
 end
 
