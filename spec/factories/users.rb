@@ -19,3 +19,14 @@ FactoryBot.define do
     password { 'testuser_a' }
   end
 end
+
+FactoryBot.define do
+  factory :user_b, class: User do
+    email { 'test_b@example.com' }
+    name { 'testuser_b' }
+    animal { 'ネコ' }
+    sex { 2 }
+    birth_date { Date.new(1980, 1, 1) }
+    password { 'testuser_b' }
+  end
+end
